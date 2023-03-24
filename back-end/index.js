@@ -1,7 +1,7 @@
 require ("./db");
 const express = require('express');
 var cors = require('cors');
-const PORT= process.env.PORT || 6677;
+const PORT= process.env.PORT || 5000;
 
 const app=express();
 app.use(express.json());
@@ -14,5 +14,5 @@ app.get("/",(req,res)=>{
 })
 
 app.listen(PORT,()=>{
-    console.log("listing to 6677");
+    console.log("listing to 5000");
 })

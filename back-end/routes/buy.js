@@ -33,14 +33,6 @@ router.post('/buy', authmiddleware, [
     product.stock -= quantity;
     await product.save();
 
-    // Add the product to the user's cart
-    const user = await User.findById(req.user.id);
-    user.cart.push({
-      productId,
-      quantity,
-    });
-    await user.save();
-
     // Add the purchase request to the user's buyrequest
     user.buyrequest.push({
       productId,

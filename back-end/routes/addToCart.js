@@ -35,14 +35,11 @@ router.post('/cart', authmiddleware, [
     if (existingCartItemIndex !== -1) {
       // If the product already exists in the cart, update the quantity
       user.cart[existingCartItemIndex].quantity += quantity;
-      user.cart[existingCartItemIndex].total += product.price * quantity;
     } else {
       // If the product is not already in the cart, add it
       user.cart.push({
         productId,
         quantity,
-        price: product.price,
-        total: product.price * quantity,
       });
     }
     await user.save();

@@ -1,6 +1,11 @@
 const mongoose=require('mongoose');
 const {Schema}=mongoose;
 
+if (mongoose.models.Product) {
+    delete mongoose.models.Product;
+  }
+  
+
 const ProductSchema= new Schema({
     user:{
         type: String,

@@ -1,11 +1,9 @@
 const mongoose=require('mongoose');
 const {Schema}=mongoose;
 
-const productSchema= new Schema({
-    productid:{
+const ProductSchema= new Schema({
+    user:{
         type: String,
-        required: true,
-        unique:true
     },
     name:{
         type: String,
@@ -29,3 +27,7 @@ const productSchema= new Schema({
         required:true,
     }
 });
+
+const ProductModel=mongoose.model('Product',ProductSchema);
+
+module.exports=ProductModel;

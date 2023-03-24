@@ -15,7 +15,19 @@ const UserSchema= new Schema({
         required: true,
         unique:true
     },
+    phone:{
+        type: Number,
+        reuired: true,
+    },
     cart:{
+        type: Array,
+        default: []
+    },
+    buyrequest:{
+        type: Array,
+        default: []
+    },
+    sellrequest:{
         type: Array,
         default: []
     }

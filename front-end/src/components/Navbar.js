@@ -20,7 +20,8 @@ const Navbar = () => {
                 </ul>
             {!localStorage.getItem('token')?
             <><Link className="btn btn-primary d-flex mx-1" to="/login" role="button">Login</Link>
-            <Link className="btn btn-primary d-flex mx-1" to="/signup" role="button">Signup</Link> </>: <Link className="btn btn-primary d-flex mx-1" to="/login" role="button" onClick={()=>{localStorage.removeItem('token'); navigate('/login')}}>Logout</Link>}
+            <Link className="btn btn-primary d-flex mx-1" to="/signup" role="button">Signup</Link> </>: <><Link className="btn btn-primary d-flex mx-1" to="/api/product/addproduct" role="button">Add Product</Link>
+            <Link className="btn btn-primary d-flex mx-1" to="/login" role="button" onClick={()=>{localStorage.removeItem('token'); navigate('/login')}}>Logout</Link></>}
             </div>
         </div>
     </nav>

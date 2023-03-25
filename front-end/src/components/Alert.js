@@ -8,7 +8,7 @@ function Alert(props) {
   }
   // important to set height in alert otherwise website layout will shift once alert pop-ups
   return (
-    <div style={{height: '40px'}}>   
+    <div style={{height:'10px'}}>   
        {props.alert && <div>                   {/* this syntax is used as and condition */}
         <div className="alert alert-primary" role="alert">
             <strong>{capitalKaro(props.alert.type)}</strong>: {props.alert.msg}

@@ -51,7 +51,7 @@ router.post("/createuser",[
 
     }catch(err){ 
         console.error(err.message);
-        res.status(500).send("Musibat ka jar yaha hai");
+        res.status(500).send(err);
     }
 })
 
@@ -96,7 +96,7 @@ async(req,res)=>{
 
     }catch(err){
         console.error(err.message);
-        res.status(500).send("This time Musibat ka jar yaha hai");
+        res.status(500).send(err);
     }
 })
 

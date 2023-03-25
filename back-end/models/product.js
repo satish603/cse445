@@ -27,7 +27,7 @@ const ProductSchema= new Schema({
         type: String,
         required: true,
     },
-    count:{
+    stock:{
         type:Number,
         required:true,
     }

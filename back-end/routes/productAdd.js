@@ -12,7 +12,7 @@ router.post(
     body("name", "Name must be 3 chars").isLength({ min: 3 }),
     body("description", "description can not be empty").exists(),
     body("category", "category can not be empty").exists(),
-    body("count", "count must be an integer greater than 0").isInt({ min: 1 }),
+    body("stock", "stock must be an integer greater than 0").isInt({ min: 1 }),
   ],
   async (req, res) => {
     //Throw error if there is problem in validation
@@ -22,11 +22,11 @@ router.post(
     }
 
     try {
-      const { name, description, category, count } = req.body;
+      const { name, description, category, stock } = req.body;
       const product = new Products({
         name,
         description,
-        count,
+        stock,
         category,
         user: req.user.id,
       });

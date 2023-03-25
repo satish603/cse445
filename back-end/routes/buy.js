@@ -7,9 +7,10 @@ const Product = require('../models/Product');
 
 // Route to buy a product
 router.post('/buy', authmiddleware, [
-    body('productId').isString().notEmpty(),
-    body('quantity').isInt({ min: 1 }),
+    body('productId','product id not found').isString().notEmpty(),
+    body('quantity','quantity less than 1').isInt({ min: 1 }),
   ], async (req, res) => {
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });

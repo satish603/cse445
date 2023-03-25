@@ -14,6 +14,8 @@ router.post("/createuser",[
     body('email','Invalid email').isEmail(),
     body('password','Password must be 5 chars long').isLength({ min: 5 }),
     body('name','Name should be minimum 3').isLength({ min: 3 }),
+    body('phone','Phone No should be 10').isLength({ min: 10 , max:10 }),
+    body('regNo','registration No should be 8').isLength({ min: 8, max:8 }),
 ],async(req,res)=>{
     //Throw error if there is problem in validation
     let success=false;
@@ -37,7 +39,9 @@ router.post("/createuser",[
         user=await User.create({
             name: req.body.name,
             password: secPass,
-            email: req.body.email
+            email: req.body.email,
+            regNo: req.body.regNo,
+            phone: req.body.phone
           })
 
           const data={

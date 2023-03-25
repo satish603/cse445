@@ -6,6 +6,10 @@ const UserSchema= new Schema({
         type: String,
         required: true,
     },
+    regNo:{
+        type: Number,
+        required: true,
+    },
     password:{
         type: String,
         required: true,

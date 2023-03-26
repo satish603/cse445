@@ -2,30 +2,36 @@ import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 
 const Card = (props) => {
+  const navigate=useNavigate();
   const {product} = props;
-  let navigate = useNavigate();
+  console.log('click')
+
   const myFunction = async (e) =>{
     e.preventDefault();
-    //API calls
-    // const url="https://cloudnote-af56.onrender.com";
-    const url="http://localhost:5000";
-    const response = await fetch(`${url}/api/cart`, {
-      method: "POST",
-      headers: {
+    if(localStorage.getItem('token')){
+      //API calls
+      // const url="https://cloudnote-af56.onrender.com";
+      const url="http://localhost:5000";
+      const response = await fetch(`${url}/api/cart`, {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
           "jwt-token": localStorage.getItem('token')
-      },
-      body: JSON.stringify({ productId:product._id, quantity: product.stock})
-  });
-  const json = await response.json();
-  if (json) {
-    props.showAlert("Product Added to cart", "success");
-    navigate("/");
-  }
-  else{
-      props.showAlert("Product not added to cart", "danger");
-  }
-
+        },
+        body: JSON.stringify({ productId:product._id, quantity: product.stock})
+      });
+      const json = await response.json();
+      if (json) {
+        // document.getElementById('addtocart').innerHTML="Added";
+        navigate("/cart");
+      }
+      else{
+        // document.getElementById('addtocart').innerHTML="Add to cart";
+        navigate("/");
+      }
+    }else{
+      navigate('/login')
+    }
   }
   return (
     <div className='container'>
@@ -36,7 +42,7 @@ const Card = (props) => {
             <p className="card-text">{product.description}</p>
             <p className="card-text">{product.category}</p>
             <p className="card-text">Stock: {product.stock}</p>
-            <Link to="/api/cart" className="btn btn-primary" onClick={myFunction}>Add to Cart</Link>
+            <Link to="/api/cart" className="btn btn-primary" onClick={myFunction} id='addtocart'>Add to Cart</Link>
         </div>
         </div>
     </div>

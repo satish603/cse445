@@ -1,6 +1,10 @@
 const mongoose=require('mongoose');
 const {Schema}=mongoose;
 
+if (mongoose.models.User) {
+    delete mongoose.models.User;
+    }
+
 const UserSchema= new Schema({
     name:{
         type: String,
@@ -8,7 +12,6 @@ const UserSchema= new Schema({
     },
     regNo:{
         type: Number,
-        required: true,
     },
     password:{
         type: String,
@@ -21,7 +24,6 @@ const UserSchema= new Schema({
     },
     phone:{
         type: Number,
-        reuired: true,
     },
     cart:{
         type: Array,

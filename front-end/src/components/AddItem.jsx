@@ -18,7 +18,7 @@ const AddItem = (props) => {
             body: JSON.stringify({ name:addproduct.name, description: addproduct.description, category:addproduct.category, stock:addproduct.stock})
         });
         const json = await response.json();
-        if (json.success) {
+        if (json) {
             navigate("/");
             props.showAlert("Product Added Successful", "success");
         }
@@ -35,7 +35,7 @@ const AddItem = (props) => {
             <form className="row g-3" onSubmit={handleSubmit}>
             <div className="col-12">
                 <label htmlFor="inputEmail4" className="form-label">Name</label>
-                <input type="text" className="form-control" id="inputEmail4" onChange={onchange} name='name'/>
+                <input type="text" className="form-control" id="inputEmail4" onChange={onchange} name='name' minLength={3} required/>
             </div>
             <div className="col-12">
                 <label htmlFor="inputAddress2" className="form-label">Description</label>

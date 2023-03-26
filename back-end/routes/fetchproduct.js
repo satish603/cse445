@@ -1,17 +1,17 @@
-const express=require("express");
-const router=express.Router();
-const Products=require('../models/product');
+const express = require("express");
+const router = express.Router();
+const Products = require('../models/product');
 const { body, validationResult } = require('express-validator');
 
-//Route 1: To get product using get
-router.get('/getproduct',async(req,res)=>{
+// Route to get products with stock greater than 0
+router.get('/getproduct', async (req, res) => {
     try {
-        const data=await Products.find();
-        res.json(data); 
-    }catch(err){
+        const data = await Products.find({ stock: { $gt: 0 } });
+        res.json(data);
+    } catch (err) {
         console.error(err.message);
-        res.status(500).send("Error in Fetchcing products");
+        res.status(500).send("Error in fetching products");
     }
 })
 
-module.exports=router;
+module.exports = router;

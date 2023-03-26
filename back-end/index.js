@@ -1,4 +1,4 @@
-require ("./db");
+require ("./config-files/connect_db");
 const express = require('express');
 var cors = require('cors');
 const PORT= process.env.PORT || 5000;
@@ -13,10 +13,8 @@ app.use('/api',require('./routes/fetchproduct'));
 app.use('/api',require('./routes/buy'));
 app.use('/api',require('./routes/addToCart'));
 app.use('/api',require('./routes/fetchCart'));
+app.use('/api',require('./routes/buyCart'));
 
-app.get("/",(req,res)=>{
-    res.send("hello");
-})
 
 app.listen(PORT,()=>{
     console.log("listing to 5000");

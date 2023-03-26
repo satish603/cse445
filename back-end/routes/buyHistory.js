@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/user');
 const { body, validationResult } = require('express-validator');
+const authmiddleware = require('../middleware/authmiddleware');
 
 // Route to get Buyer's buyrequest
-router.get('/buyrequest', async (req, res) => {
+router.get('/buy_history', authmiddleware, async (req, res) => {
     try{
         const buyer = await User.findById(req.user.id);
         const buyRequest = buyer.buyrequest;

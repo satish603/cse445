@@ -14,6 +14,7 @@ app.use('/api',require('./routes/buy'));
 app.use('/api',require('./routes/addToCart'));
 app.use('/api',require('./routes/fetchCart'));
 app.use('/api',require('./routes/buyCart'));
+app.use('/api',require('./routes/fetchBuy'));
 
 
 app.listen(PORT,()=>{

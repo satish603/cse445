@@ -47,7 +47,7 @@ router.post('/cart', authmiddleware, [
 
     res.json({ message: 'Product added to cart successfully' });
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
     res.status(500).send('Server error');
   }
 });

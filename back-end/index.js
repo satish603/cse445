@@ -12,6 +12,7 @@ app.use('/api/product',require('./routes/productAdd'));
 app.use('/api',require('./routes/fetchproduct'));
 app.use('/api',require('./routes/buy'));
 app.use('/api',require('./routes/addToCart'));
+app.use('/api',require('./routes/fetchCart'));
 
 app.get("/",(req,res)=>{
     res.send("hello");

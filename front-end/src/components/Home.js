@@ -10,13 +10,15 @@ export default class App extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:5000/api/getproduct')
+    fetch('http://localhost:5000/api/getproduct?stock=gt:0')
     .then((response)=> response.json())
     .then((item)=>{
       this.setState(()=>{
         return {products : item};
-      })});
-  }
+      });
+    });
+}
+
 
   render() {
     return (

@@ -73,6 +73,21 @@ router.post('/buyall', authmiddleware, async (req, res) => {
       console.error(error.message);
       res.status(500).send('Server error');
     }
+
+    // Delete the entire cart data
+  try {
+    const buyer = await User.findByIdAndUpdate(
+      req.user.id,
+      { $set: { cart: [] } },
+      { new: true }
+    );
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+
+
+
   });
 
 module.exports = router;

@@ -16,6 +16,7 @@ app.use('/api',require('./routes/fetchCart'));
 app.use('/api',require('./routes/buyCart'));
 app.use('/api',require('./routes/buyer_details'));
 app.use('/api',require('./routes/buyHistory'));
+app.use('/api',require('./routes/search'));
 
 app.listen(PORT,()=>{
     console.log("listing to 5000");

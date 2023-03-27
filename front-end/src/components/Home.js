@@ -4,7 +4,6 @@ import searchContext from '../context/search/searchContext';
 
 
 function Home(){
-
   const products={
     productsarray: [],
   }
@@ -19,7 +18,7 @@ function Home(){
           return { productsarray: item };
         });
       });
-  });
+  },[]);
   const filterProduct=state.productsarray.filter((product)=>{
     return product.name.toLowerCase().includes(searchkey.searchField);
   })

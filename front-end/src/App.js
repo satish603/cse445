@@ -7,6 +7,8 @@ import AddItem from './components/AddItem';
 import Alerts from './components/Alert';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Cart from './components/cart';
+import SearchState from './context/search/SearchState';
 import {useState} from 'react';
 import { 
   BrowserRouter as Router,
@@ -26,6 +28,7 @@ function App() {
     }, 1500);
 }
   return (
+    <SearchState>
     <Router>
       <Navbar/>
         <Alerts alert={alert}/>
@@ -36,9 +39,11 @@ function App() {
         <Route exact path="/api/product/addproduct" element={<AddItem showAlert={showAlert}/>}/>
         <Route exact path="/login" element={<Login showAlert={showAlert}/>}/>
         <Route exact path="/signup" element={<SignUp showAlert={showAlert}/>}/>
+        <Route exact path="/cart" element={<Cart />}/>
       </Routes>
     </div>
     </Router>
+    </SearchState>
   );
 }
 

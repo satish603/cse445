@@ -1,31 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Card from './Card';
+import searchContext from '../context/search/searchContext';
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      products: [],
-    };
+
+function Home(){
+
+  const products={
+    productsarray: [],
   }
-
-  componentDidMount() {
+  const [state, setState] = useState(products);
+  const context=useContext(searchContext);
+  const {searchkey}=context;
+  useEffect(()=>{
     fetch('http://localhost:5000/api/getproduct')
       .then((response) => response.json())
       .then((item) => {
-        this.setState(() => {
-          return { products: item };
+        setState(() => {
+          return { productsarray: item };
         });
       });
-  }
-
-  render() {
+  });
+  const filterProduct=state.productsarray.filter((product)=>{
+    return product.name.toLowerCase().includes(searchkey.searchField);
+  })
     return (
       <div className='container'>
         <h1 className='text-center'>Donato</h1>
         <div className='container'>
           <div className='row'>
-            {this.state.products.map((product) => {
+            {filterProduct.map((product) => {
               return (
                 <div className='col-md-4 col-12 mx-auto my-2'>
                   <Card key={product.id} product={product} />
@@ -37,4 +40,5 @@ export default class App extends Component {
       </div>
     );
   }
-}
+
+  export default Home;

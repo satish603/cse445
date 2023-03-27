@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 const Card = (props) => {
   const navigate=useNavigate();
   const {product} = props;
-  console.log('click')
 
   const myFunction = async (e) =>{
     e.preventDefault();
@@ -22,12 +21,7 @@ const Card = (props) => {
       });
       const json = await response.json();
       if (json) {
-        // document.getElementById('addtocart').innerHTML="Added";
         navigate("/cart");
-      }
-      else{
-        // document.getElementById('addtocart').innerHTML="Add to cart";
-        navigate("/");
       }
     }else{
       navigate('/login')

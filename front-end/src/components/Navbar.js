@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link, useLocation } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import SearchContext from "../context/search/searchContext";
 
 const Navbar = () => {
     const location=useLocation();
     const navigate=useNavigate();
+    const context=useContext(SearchContext);
+    const {search}=context;
+    const onChange=(event)=>{
+        const keyword=event.target.value.toLowerCase();
+        search(keyword);
+      }
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
@@ -36,6 +43,10 @@ const Navbar = () => {
                     </li>
                     </>}
                 </ul>
+                <form className="d-flex input-group w-auto">
+                <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" onChange={onChange}/>
+                </form>
+
             {!localStorage.getItem('token')?
             <><Link className="btn btn-primary d-flex mx-1" to="/login" role="button">Login</Link>
             <Link className="btn btn-primary d-flex mx-1" to="/signup" role="button">Signup</Link> </>: <>
@@ -45,5 +56,6 @@ const Navbar = () => {
     </nav>
   )
 }
+
 
 export default Navbar

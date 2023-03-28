@@ -3,8 +3,34 @@ const router = express.Router();
 const Products = require("../models/product");
 const { body, validationResult } = require("express-validator");
 const authmiddle = require("../middleware/authmiddleware");
+const multer = require("multer");
+const path = require("path");
 
-//Route 2: To add a Product
+// Set storage engine for multer
+const storage = multer.diskStorage({
+  destination: "./public/images",
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+// Initialize upload
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 3000000 }, // 3MB limit
+  fileFilter: function (req, file, cb) {
+    // Allow only image files
+    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+      return cb(new Error("Only image files are allowed!"));
+    }
+    cb(null, true);
+  },
+}).single("image");
+
+// Route to add a product
 router.post(
   "/addproduct",
   authmiddle,
@@ -21,21 +47,30 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    try {
-      const { name, description, category, stock } = req.body;
-      const product = new Products({
-        name,
-        description,
-        stock,
-        category,
-        user: req.user.id,
-      });
-      const saveProduct = await product.save();
-      res.json(saveProduct);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Problem while adding product");
-    }
+    // Upload image and handle errors
+    upload(req, res, async (err) => {
+      if (err) {
+        console.error(err.message);
+        return res.status(400).json({ msg: err.message });
+      }
+
+      try {
+        const { name, description, category, stock } = req.body;
+        const product = new Products({
+          name,
+          description,
+          stock,
+          category,
+          user: req.user.id,
+          imageUrl: req.file ? req.file.path : "",
+        });
+        const saveProduct = await product.save();
+        res.json(saveProduct);
+      } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Problem while adding product");
+      }
+    });
   }
 );
 

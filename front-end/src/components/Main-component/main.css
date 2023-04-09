@@ -1,0 +1,29 @@
+.main-text h1 {
+  font-size: 2rem;
+    line-height: 1.5;
+    text-shadow: 5px 4px 11px rgba(0, 0, 0, 0.26);
+    color: #2f2f2f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .main-text h1:nth-child(2) {
+    font-weight: bold;
+    color: #5222d0;
+  }
+  .main-text p,
+  .our-services p,
+  label {
+    letter-spacing: 0.2rem;
+    color: #777676;
+    text-transform: capitalize;
+    margin-top: 1.5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .main-text p span {
+    font-weight: bold;
+    color: #000;
+  }
+  
+  

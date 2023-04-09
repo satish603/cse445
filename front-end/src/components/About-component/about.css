@@ -1,0 +1,19 @@
+
+  
+  .about-style .main-heading,
+  .service-style .main-heading,
+  .contact-style .main-heading {
+    color: #fd5c63;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  
+  .about-style .sub-heading,
+  .service-style .sub-heading,
+  .contact-style .sub-heading {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    line-height: 2;
+    color: #333;
+    font-weight: 500;
+  }

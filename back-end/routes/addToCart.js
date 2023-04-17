@@ -7,10 +7,10 @@ const Product = require('../models/Product');
 
 // Route to add a product to the cart
 router.post('/cart', authmiddleware, [
-  body('productId','product id not found').isString().notEmpty(),
-  body('quantity','quantity less than 1').isInt({ min: 1 }),
+  body('productId', 'product id not found').isString().notEmpty(),
+  body('quantity', 'quantity less than 1').isInt({ min: 1 }),
 ], async (req, res) => {
-  
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -21,6 +21,7 @@ router.post('/cart', authmiddleware, [
   try {
     // Find the product by ID
     const product = await Product.findById(productId);
+
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
@@ -40,6 +41,11 @@ router.post('/cart', authmiddleware, [
       // If the product is not already in the cart, add it
       user.cart.push({
         productId,
+        "name": product.name,
+        "price": product.price,
+        "url": product.url,
+        "category": product.category,
+        "description": product.description,
         quantity,
       });
     }

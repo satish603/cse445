@@ -15,6 +15,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ProductList from './components/ProductsList';
 
 function App() {
   const [alert, setalert] = useState(null);
@@ -40,6 +41,12 @@ function App() {
         <Route exact path="/login" element={<Login showAlert={showAlert}/>}/>
         <Route exact path="/signup" element={<SignUp showAlert={showAlert}/>}/>
         <Route exact path="/cart" element={<Cart />}/>
+        <Route exact path="/api/getproduct/electronic" element={<ProductList category={'electronic'}/>}/>
+        <Route exact path="/api/getproduct/stationary" element={<ProductList category={'stationary'}/>}/>
+        <Route exact path="/api/getproduct/utilities" element={<ProductList category={'utilities'}/>}/>
+        <Route exact path="/api/getproduct/bedings" element={<ProductList category={'bedings'}/>}/>
+        <Route exact path="/api/getproduct/tools" element={<ProductList category={'tools'}/>}/>
+        <Route exact path="/api/getproduct/others" element={<ProductList category={'others'}/>}/>
       </Routes>
     </div>
     </Router>

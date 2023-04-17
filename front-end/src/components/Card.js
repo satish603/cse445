@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+import './cardStyle.scss'
 
 const Card = (props) => {
   const navigate=useNavigate();
@@ -29,7 +30,34 @@ const Card = (props) => {
   }
   return (
     <div className='container'>
-        <div className="card">
+      <div className="product-card">
+		  <div className="badge">New</div>
+		  <div className="product-tumb">
+			<img src={product.url} alt=""/>
+		</div>
+		<div className="product-details">
+			<span className="product-catagory">{product.category}</span>
+			<h4><a href="/">{product.name}</a></h4>
+			<p>{product.description}</p>
+			<div className="product-bottom-details">
+          <div className="button-box">
+            <button className="twelve" onClick={myFunction}>Add to cart</button>
+          </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+        {/* <div className="card">
             <img className="card-img-top" src={product.url} alt="error"/>
         <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
@@ -38,7 +66,7 @@ const Card = (props) => {
             <p className="card-text">Stock: {product.stock}</p>
             <Link to="/api/cart" className="btn btn-primary" onClick={myFunction} id='addtocart'>Add to Cart</Link>
         </div>
-        </div>
+        </div> */}
     </div>
   )
 }

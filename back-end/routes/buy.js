@@ -39,6 +39,11 @@ router.post('/buy', authmiddleware, [
       // Add the purchase request to the buyer's buyrequest
       buyer.buyrequest.push({
         productId,
+        "name": product.name,
+        "price": product.price,
+        "url": product.url,
+        "category": product.category,
+        "description": product.description,
         quantity,
       });
       await buyer.save();
@@ -46,8 +51,13 @@ router.post('/buy', authmiddleware, [
       // Add the sale request to the seller's sellrequest
       const seller = await User.findById(product.user);
       seller.sellrequest.push({
-          productId,
-          quantity,
+        productId,
+        "name": product.name,
+        "price": product.price,
+        "url": product.url,
+        "category": product.category,
+        "description": product.description,
+        quantity,
           buyer: req.user.id,
       });
       await seller.save();

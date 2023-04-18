@@ -28,12 +28,13 @@ const Card = (props) => {
       navigate('/login')
     }
   }
+  console.log(product.imageUrl);
   return (
     <div className='container'>
       <div className="product-card">
 		  <div className="badge">New</div>
 		  <div className="product-tumb">
-			<img src={product.url} alt=""/>
+			<img src={`http://localhost:5000/${product.imageUrl}`} alt=""/>
 		</div>
 		<div className="product-details">
 			<span className="product-catagory">{product.category}</span>

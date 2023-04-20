@@ -45,7 +45,7 @@ router.post('/cart', authmiddleware, [
         "category": product.category,
         "description": product.description,
         "imageUrl": product.imageUrl,
-        quantity,
+        "quantity":1,
       });
     }
     await user.save();

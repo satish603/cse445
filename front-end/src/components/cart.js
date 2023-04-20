@@ -6,18 +6,10 @@ export default class App extends Component {
     super();
     this.state={
       products: [],
-      totalproducts:[]
     }
   }
 
   componentDidMount(){
-    fetch('http://localhost:5000/api/getproduct')
-      .then((response) => response.json())
-      .then((item) => {
-        this.setState(() => {
-          return { totalproducts: item };
-        });
-      });
     //API calls
     // const url="https://cloudnote-af56.onrender.com";
     const url="http://localhost:5000";
@@ -53,7 +45,7 @@ render() {
             // console.log(product.productId)
             return (
               <div className="col-md-4 col-12 mx-auto my-2">
-                  <Card key={product.id} product={product} />
+                  <Card key={product.id} product={product}/>
               </div>
             )
           })}

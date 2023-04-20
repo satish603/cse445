@@ -1,9 +1,10 @@
 import React from 'react'
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate, useLocation } from "react-router-dom";
 import './cardStyle.scss'
 
 const Card = (props) => {
   const navigate=useNavigate();
+  const location = useLocation();
   const {product} = props;
 
   const myFunction = async (e) =>{
@@ -28,7 +29,6 @@ const Card = (props) => {
       navigate('/login')
     }
   }
-  console.log(product.imageUrl);
   return (
     <div className='container'>
       <div className="product-card">
@@ -40,9 +40,10 @@ const Card = (props) => {
 			<span className="product-catagory">{product.category}</span>
 			<h4><a href="/">{product.name}</a></h4>
 			<p>{product.description}</p>
+			<p>{product.quantity}</p>
 			<div className="product-bottom-details">
           <div className="button-box">
-            <button className="twelve" onClick={myFunction}>Add to cart</button>
+            {location.pathname==='/cart'? <button className="twelve">Buy Now</button> : <button className="twelve" onClick={myFunction}>Add to cart</button>}
           </div>
 			</div>
 		</div>

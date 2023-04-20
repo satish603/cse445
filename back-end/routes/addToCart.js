@@ -3,7 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const authmiddleware = require('../middleware/authmiddleware');
 const User = require('../models/User');
-const Product = require('../models/Product');
+const Product = require('../models/product');
 
 // Route to add a product to the cart
 router.post('/cart', authmiddleware, [
@@ -11,7 +11,7 @@ router.post('/cart', authmiddleware, [
   body('quantity', 'quantity less than 1').isInt({ min: 1 }),
 ], async (req, res) => {
 
-  const errors = validationResult(req);
+  const errors = validationResult(req); 
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -42,10 +42,9 @@ router.post('/cart', authmiddleware, [
       user.cart.push({
         productId,
         "name": product.name,
-        "price": product.price,
-        "url": product.url,
         "category": product.category,
         "description": product.description,
+        "imageUrl": product.imageUrl,
         quantity,
       });
     }

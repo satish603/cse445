@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user'); // import UserModel from user model file
+const User = require('../models/User'); // import UserModel from user model file
 const Product = require('../models/product'); // import Product from product model file
 const authmiddleware = require('../middleware/authmiddleware');
 
@@ -18,6 +18,8 @@ router.post('/buyall', authmiddleware, async (req, res) => {
       try {
         // Find the product by ID
         const product = await Product.findById(productId);
+        // const user= await User.findById(req.body.Id);
+        // console.log(user);
         // console.log(productId);
         if (!product) {
           return res.status(404).json({ error: 'Product not found' });
@@ -35,7 +37,11 @@ router.post('/buyall', authmiddleware, async (req, res) => {
         // Add the purchase request to the buyer's buyrequest
         buyRequests.push({
           productId,
-          quantity,
+        "name": product.name,
+        "imageUrl": product.imageUrl,
+        "category": product.category,
+        "description": product.description,
+        quantity,
         });
   
         // Add the sale request to the seller's sellrequest
@@ -44,6 +50,10 @@ router.post('/buyall', authmiddleware, async (req, res) => {
           productId,
           quantity,
           buyer: req.user.id,
+          "name": product.name,
+          "imageUrl": product.imageUrl,
+          "category": product.category,
+          "description": product.description,
         });
       } catch (error) {
         console.error(error.message);

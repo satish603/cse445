@@ -43,10 +43,10 @@ const Navbar = () => {
                             </li>
                         </>}
                     </ul>
-                    <form className="d-flex input-group w-auto">
+                    {location.pathname==='/'? "": <form className="d-flex input-group w-auto">
                         <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" onChange={onChange} />
                     </form>
-
+                    }
                     {!localStorage.getItem('token') ?
                         <><Link className="btn buton d-flex mx-1" to="/login" role="button">Login</Link>
                             <Link className="btn buton d-flex mx-1" to="/signup" role="button">Signup</Link> </> : <>

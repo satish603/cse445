@@ -1,54 +1,81 @@
 import React, { Component } from 'react'
-import Card from './Card'
+import './cart.style.scss'
 
 export default class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
+    this.state = {
       products: [],
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     //API calls
     // const url="https://cloudnote-af56.onrender.com";
-    const url="http://localhost:5000";
+    const url = "http://localhost:5000";
     fetch(`${url}/api/cart`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "jwt-token": localStorage.getItem('token')
-        },
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "jwt-token": localStorage.getItem('token')
+      },
     })
-    .then((response)=> response.json())
-    .then((item)=>{
-      this.setState(()=>{
-        return {products : item};
+      .then((response) => response.json())
+      .then((item) => {
+        this.setState(() => {
+          return { products: item };
+        });
       });
-    });
-}
-render() {
-    //   console.log(this.state.products)
-    // console.log(this.state.products.productId)
-    // console.log(this.state.totalproducts._id)
-    // const filterProduct=this.state.totalproducts.filter((product)=>{
-    //     return product._id.includes(this.state.products.productId);
-    //   })
-    //   console.log(filterProduct)
-    
+  }
+  // navigate=useNavigate();
+  buyCart = async (e) => {
+    e.preventDefault();
+    //API calls
+    // const url="https://cloudnote-af56.onrender.com";
+    const url = "http://localhost:5000";
+    const response = await fetch(`${url}/api/buyall`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "jwt-token": localStorage.getItem('token')
+      }
+    })
+    const json = await response.json();
+  }
+  render() {
+    // console.log(this.state.products)
+
     return (
-      <div className='container'>
-        <h1 className='text-center'>Cart</h1>
-        <div className="container">
-          <div className="row">
-          {this.state.products.map((product)=>{
-            // console.log(product.productId)
-            return (
-              <div className="col-md-4 col-12 mx-auto my-2">
-                  <Card key={product.id} product={product}/>
-              </div>
-            )
-          })}
+      <div className="cart">
+        <div className="wrap">
+          <header className="cart-header cf">
+            <strong>Items in Your Cart</strong>
+          </header>
+          <div className="cart-table">
+            <ul>
+              {this.state.products.map((product) => {
+                return (
+                  <li className="item">
+                    <div className="item-main cf">
+                      <div className="item-block ib-info cf">
+                        <img className="product-img" src={`http://localhost:5000/${product.imageUrl}`} alt='' />
+                        <div className="ib-info-meta">
+                          <h3>{product.name}</h3>
+                          <span className="title">{product.description}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="item-foot cf">
+                      <div className="if-left"><span className="if-status">In Stock</span></div>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+          <div className="cart-footer cf">
+            <span className="butom" onClick={this.buyCart}>Checkout</span>
+            <span className="cont-shopping"><i className="i-angle-left"></i>Continue Shopping</span>
           </div>
         </div>
       </div>

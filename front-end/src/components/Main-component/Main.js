@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Main-component/main.css'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
   return (
@@ -11,7 +12,7 @@ const Main = () => {
                             <h1>EMPOWERING THE NEEDY IS OUR PRIORITY.</h1>
                             <h1>CREATE A BIG IMPACT WITH A SMALL DONATION.</h1>
                             <p>WE ARE A TEAM OF <span className="bold-style">Professional Developer✌️</span></p>
-                            <button className="buton">Read more</button>
+                            <Link to='/about'><button className="buton">Read more</button></Link>
                         </div>
                         <div className="col-md-6 col-12 main-text main-img order-md-1 order-0">
                             <figure>

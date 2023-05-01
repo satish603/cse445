@@ -13,10 +13,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services settings">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/responsive.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/electronic">Electronic</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Laptop, Mobile, Calculator, Keyboard, etc...</p>
                         </div>
                     </div>                    
                 </div>
@@ -24,10 +24,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services speedup">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/stationary.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/stationary">Stationary</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Book, CV Files, Pens, Geometry, etc...</p>
                         </div>
                     </div>                    
                 </div>
@@ -35,10 +35,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services privacy">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/utility.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/utilities">Utilities</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Buckets, Mug, Dustbin, Bottles, etc...</p>
                         </div>
                     </div>                    
                 </div>
@@ -46,10 +46,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services backups">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/bedding.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/bedings">Bedings</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Mattres, Pillow, Blankets, etc...</p>
                         </div>
                     </div>                    
                 </div>
@@ -57,10 +57,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services ssl">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/tool.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/tools">Tools</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Engineering Kit, Drawing Kit, Drawing Board, etc...</p>
                         </div>
                     </div>                    
                 </div>
@@ -68,10 +68,10 @@ const Products = () => {
                     <div class="box">
                         <div class="our-services database">
                             <div class="icon">
-                                <img src="images/settings.png" alt="" height="80" width="80"/>
+                                <img src="images/more.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/others">Others</Link>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, maxime?</p>
+                            <p>Bag, Trolley, Lamp, Chair, etc...</p>
                         </div>
                     </div>                    
                 </div>

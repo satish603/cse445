@@ -1,9 +1,9 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import About from './components/About';
+import About from './components/Detailed-About/About';
 import Home from './components/Home';
-// import Footer from './components/Footer';
-import AddItem from './components/AddItem';
+import Footer from './components/footer-component/Footer';
+import AddItem from './components/ADD-Product/AddProduct';
 import Alerts from './components/Alert';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
@@ -33,7 +33,7 @@ function App() {
     <Router>
       <Navbar/>
         <Alerts alert={alert}/>
-        <div className="container">
+        <div className="container maincontent">
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/about" element={<About/>}/>
@@ -49,6 +49,7 @@ function App() {
         <Route exact path="/api/getproduct/others" element={<ProductList category={'others'}/>}/>
       </Routes>
     </div>
+    <Footer/>
     </Router>
     </SearchState>
   );

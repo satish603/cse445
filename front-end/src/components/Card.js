@@ -32,7 +32,7 @@ const Card = (props) => {
   return (
     <div className='container'>
       <div className="product-card">
-		  <div className="badge">New</div>
+        {location.pathname==='/cart'? "" : <div className="badge">New</div>}
 		  <div className="product-tumb">
 			<img src={`http://localhost:5000/${product.imageUrl}`} alt=""/>
 		</div>
@@ -41,11 +41,11 @@ const Card = (props) => {
 			<h4><a href="/">{product.name}</a></h4>
 			<p>{product.description}</p>
 			<p>{product.quantity}</p>
-			<div className="product-bottom-details">
+      { location.pathname==='/cart' ? "" : <div className="product-bottom-details">
           <div className="button-box">
-            {location.pathname==='/cart'? <button className="twelve">Buy Now</button> : <button className="twelve" onClick={myFunction}>Add to cart</button>}
+            <button className="twelve" onClick={myFunction}>Add to cart</button>
           </div>
-			</div>
+			</div>}
 		</div>
 	</div>
 

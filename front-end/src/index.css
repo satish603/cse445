@@ -3,6 +3,12 @@
 }
 body {
   margin: 0;
+  height: 100%;
+}
+.maincontent{
+      display: flex;
+			flex-direction: column;
+			min-height: 120vh;
 }
 
 code {

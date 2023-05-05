@@ -58,7 +58,7 @@ export default class App extends Component {
                   <li className="item">
                     <div className="item-main cf">
                       <div className="item-block ib-info cf">
-                        <img className="product-img" src={`http://localhost:5000/${product.imageUrl}`} alt='' />
+                        <img className="product-img" src={product.imageUrl} alt='' />
                         <div className="ib-info-meta">
                           <h3>{product.name}</h3>
                           <span className="title">{product.description}</span>

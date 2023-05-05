@@ -34,7 +34,7 @@ const Card = (props) => {
       <div className="product-card">
         {location.pathname==='/cart'? "" : <div className="badge">New</div>}
 		  <div className="product-tumb">
-			<img src={`http://localhost:5000/${product.imageUrl}`} alt=""/>
+			<img src={product.imageUrl} alt=""/>
 		</div>
 		<div className="product-details">
 			<span className="product-catagory">{product.category}</span>

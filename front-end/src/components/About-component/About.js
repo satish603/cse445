@@ -2,18 +2,18 @@ import React from 'react'
 import '../About-component/about.css'
 const About = () => {
   return (
-    <div class="container-fluid mt-5 about-style" id="aboutid">
-            <div class="row">
-                <div class="col-md-10 col-12 mx-auto">
-                    <h1 class="text-center main-heading">About</h1>
-                    <p class="text-center sub-heading">dedicated to make a positive impact in our community</p>
-                    <div class="row">
-                        <div class="col-md-6 col-12 main-text main-img">
+    <div className="container-fluid mt-5 about-style" id="aboutid">
+            <div className="row">
+                <div className="col-md-10 col-12 mx-auto">
+                    <h1 className="text-center main-heading">About</h1>
+                    <p className="text-center sub-heading">dedicated to make a positive impact in our community</p>
+                    <div className="row">
+                        <div className="col-md-6 col-12 main-text main-img">
                             <figure>
                                 <img src="images/img2.jpg" alt="img1" height="450" width="550"/>
                             </figure>
                         </div>
-                        <div class="col-md-6 col-12 main-text d-flex justify-content-center align-items-start flex-column">
+                        <div className="col-md-6 col-12 main-text d-flex justify-content-center align-items-start flex-column">
                             <div style={{textAlign:'center'}}>
                                 <h1>WE ARE A UNITED FORCE OF SOCIAL WORKERS.✌️</h1>
                             </div>

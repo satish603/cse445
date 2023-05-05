@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const UserModel = require("../models/User") // import UserModel from user model file
+const UserModel = require("../models/user") // import UserModel from user model file
 const { body, validationResult } = require("express-validator");
 const authmiddle = require("../middleware/authmiddleware");
 

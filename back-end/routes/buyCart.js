@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User'); // import UserModel from user model file
+const User = require('../models/user'); // import UserModel from user model file
 const Product = require('../models/product'); // import Product from product model file
 const authmiddleware = require('../middleware/authmiddleware');
 

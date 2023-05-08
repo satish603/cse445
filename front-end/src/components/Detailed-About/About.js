@@ -2,8 +2,41 @@ import React from 'react'
 import "./about.style.css"
 
 const AboutPage = () => {
+    //audio recorder function
+    const recordAudio = async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mediaRecorder = new MediaRecorder(stream);
+        const audioChunks = [];
+      
+        mediaRecorder.addEventListener('dataavailable', (event) => {
+          audioChunks.push(event.data);
+        });
+      
+        mediaRecorder.addEventListener('stop', () => {
+          const audioBlob = new Blob(audioChunks);
+          const reader = new FileReader();
+          reader.readAsDataURL(audioBlob);
+          reader.onloadend = () => {
+            const base64String = reader.result;
+            console.log(base64String);
+            // Send the base64String to the server
+          };
+        });
+      
+        mediaRecorder.start();
+      
+        setTimeout(() => {
+          mediaRecorder.stop();
+        }, 5000); // Record for 5 seconds, then stop
+      };
+      
+      
+
+
+
     return (
         <div className="container aboutDetailed">
+            <button onClick={recordAudio}>mic</button>
             <h3 className='main-about'>About Donato</h3>
             <p className='aboutP'>Donato is a non-profit organization that is dedicated to making a positive impact in the world by supporting various causes through donations. Our mission is to make it easy for people to contribute to the causes they care about and help make a difference in the world.
 

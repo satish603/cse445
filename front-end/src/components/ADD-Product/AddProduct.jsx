@@ -20,8 +20,8 @@ const AddItem = (props) => {
         
         
         //API calls
-        // const url="https://cloudnote-af56.onrender.com";
-        const url="http://localhost:5000";
+        const url="https://cse445.vercel.app";
+        // const url="http://localhost:5000";
         const response = await fetch(`${url}/api/product/addproduct`, {
             method: "POST",
             headers: {

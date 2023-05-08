@@ -7,8 +7,8 @@ const SignUp = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         //API calls
-        // const url="https://cloudnote-af56.onrender.com";
-        const url="http://localhost:5000";
+        const url="https://cse445.vercel.app";
+        // const url="http://localhost:5000";
         const response = await fetch(`${url}/api/auth/createuser`, {
             method: "POST",
             headers: {
@@ -32,7 +32,7 @@ const SignUp = (props) => {
     }
   return (
     <>
-    <div className="container">
+    <div className="container" style={{marginTop: "82px"}}>
     <section className="vh-100" style={{backgroundColor: '#eee'}}>
     <div className="container h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -42,51 +42,51 @@ const SignUp = (props) => {
             <div className="row justify-content-center">
               <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p className="text-center h1 fw-bold mb-2 mx-1 mx-md-4 mt-2">Sign up</p>
 
                 <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
+                  <div className="d-flex flex-row align-items-center mb-2">
                     <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" className="form-control" onChange={onchange} name="name"/>
                       <label className="form-label" htmlFor="form3Example1c" >Your Name</label>
+                      <input type="text" id="form3Example1c" className="form-control" onChange={onchange} name="name"/>
                     </div>
                   </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
+                  <div className="d-flex flex-row align-items-center mb-2">
                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" className="form-control" onChange={onchange} name="email"/>
                       <label className="form-label" htmlFor="form3Example3c" >Your Email</label>
+                      <input type="email" id="form3Example3c" className="form-control" onChange={onchange} name="email"/>
                     </div>
                   </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
+                  <div className="d-flex flex-row align-items-center mb-2">
                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" className="form-control" onChange={onchange} name="password"/>
                       <label className="form-label" htmlFor="form3Example4c" >Password</label>
+                      <input type="password" id="form3Example4c" className="form-control" onChange={onchange} name="password"/>
                     </div>
                   </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
+                  <div className="d-flex flex-row align-items-center mb-2">
                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example4c" className="form-control" onChange={onchange} name="regNo"/>
                       <label className="form-label" htmlFor="form3Example4c" name="regNo">Registration Number</label>
+                      <input type="text" id="form3Example4c" className="form-control" onChange={onchange} name="regNo"/>
                     </div>
                   </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
+                  <div className="d-flex flex-row align-items-center mb-2">
                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example4c" className="form-control" onChange={onchange} name="phone"/>
                       <label className="form-label" htmlFor="form3Example4c" >Phone Number</label>
+                      <input type="text" id="form3Example4c" className="form-control" onChange={onchange} name="phone"/>
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-4">
                     <button type="submit" className="btn btn-primary btn-lg">SignUp</button>
                   </div>
 

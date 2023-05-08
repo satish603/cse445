@@ -11,8 +11,8 @@ const Card = (props) => {
     e.preventDefault();
     if(localStorage.getItem('token')){
       //API calls
-      // const url="https://cloudnote-af56.onrender.com";
-      const url="http://localhost:5000";
+      const url="https://cse445.vercel.app";
+      // const url="http://localhost:5000";
       const response = await fetch(`${url}/api/cart`, {
         method: "POST",
         headers: {

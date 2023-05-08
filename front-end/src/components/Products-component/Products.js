@@ -4,15 +4,15 @@ import '../Products-component/products.css'
 
 const Products = () => {
   return (
-    <div class="container-fluid mt-5 service-style" id="serviceid">
-    <div class="row">
-        <div class="col-md-10 col-12 mx-auto">
-            <h1 class="text-center main-heading">Products</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services settings">
-                            <div class="icon">
+    <div className="container-fluid mt-5 service-style" id="serviceid">
+    <div className="row">
+        <div className="col-md-10 col-12 mx-auto">
+            <h1 className="text-center main-heading">Products</h1>
+            <div className="row">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services settings">
+                            <div className="icon">
                                 <img src="images/responsive.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/electronic">Electronic</Link>
@@ -20,10 +20,10 @@ const Products = () => {
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services speedup">
-                            <div class="icon">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services speedup">
+                            <div className="icon">
                                 <img src="images/stationary.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/stationary">Stationary</Link>
@@ -31,10 +31,10 @@ const Products = () => {
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services privacy">
-                            <div class="icon">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services privacy">
+                            <div className="icon">
                                 <img src="images/utility.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/utilities">Utilities</Link>
@@ -42,10 +42,10 @@ const Products = () => {
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services backups">
-                            <div class="icon">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services backups">
+                            <div className="icon">
                                 <img src="images/bedding.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/bedings">Bedings</Link>
@@ -53,10 +53,10 @@ const Products = () => {
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services ssl">
-                            <div class="icon">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services ssl">
+                            <div className="icon">
                                 <img src="images/tool.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/tools">Tools</Link>
@@ -64,10 +64,10 @@ const Products = () => {
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="our-services database">
-                            <div class="icon">
+                <div className="col-md-4">
+                    <div className="box">
+                        <div className="our-services database">
+                            <div className="icon">
                                 <img src="images/more.png" alt="" height="80" width="80"/>
                             </div>
                             <Link className="heading" to="/api/getproduct/others">Others</Link>

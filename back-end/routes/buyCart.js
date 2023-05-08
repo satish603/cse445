@@ -8,9 +8,10 @@ const authmiddleware = require('../middleware/authmiddleware');
 // Route to buy all items in the cart
 router.post('/buyall', authmiddleware, async (req, res) => {
     const { cart } = await User.findById(req.user.id);
-    
-    const buyRequests = [];
-    const sellRequests = [];
+    const details = await User.findById(req.user.id);
+    console.log(details);
+    const buyRequestToOwner = [];
+    const productHistory = [];
   
     for (const item of cart) {
       const { productId, quantity } = item;
@@ -35,18 +36,22 @@ router.post('/buyall', authmiddleware, async (req, res) => {
         await product.save();
   
         // Add the purchase request to the buyer's buyrequest
-        buyRequests.push({
+        buyRequestToOwner.push({
           productId,
         "name": product.name,
         "imageUrl": product.imageUrl,
         "category": product.category,
         "description": product.description,
         quantity,
+        "buyer_name": details.name,
+        "buyer_email": details.email,
+        "buyer_phone": details.phone,
+        "buyer_regNo": details.regNo,
         });
   
         // Add the sale request to the seller's sellrequest
         const seller = await User.findById(product.user);
-        sellRequests.push({
+        productHistory.push({
           productId,
           quantity,
           buyer: req.user.id,
@@ -65,12 +70,12 @@ router.post('/buyall', authmiddleware, async (req, res) => {
       // Update the buyer's buyrequest array with all purchased items
       const buyer = await User.findByIdAndUpdate(
         req.user.id,
-        { $push: { buyrequest: { $each: buyRequests } }, $set: { cart: [] } },
+        { $push: { buyrequest: { $each: buyRequestToOwner } }, $set: { cart: [] } },
         { new: true }
       );
   
       // Update the sellers' sellrequest arrays with all sold items
-      for (const sellRequest of sellRequests) {
+      for (const sellRequest of productHistory) {
         const seller = await User.findByIdAndUpdate(
           sellRequest.buyer,
           { $push: { sellrequest: sellRequest } },

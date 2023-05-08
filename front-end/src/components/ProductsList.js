@@ -13,7 +13,7 @@ function ProductList(props){
   const {searchkey}=context;
   const category=props.category;
   useEffect(()=>{
-    const url=`https://cse445.vercel.app/api/getproduct/${category}`
+    const url=`http://localhost:5000/api/getproduct/${category}`
     fetch(url)
       .then((response) => response.json())
       .then((item) => {

@@ -1,43 +1,39 @@
-const mongoose=require('mongoose');
-const {Schema}=mongoose;
+const mongoose = require('mongoose');
 
-if (mongoose.models.User) {
-    delete mongoose.models.User;
-    }
-
-const UserSchema= new Schema({
-    name:{
-        type: String,
-        required: true,
-    },
-    regNo:{
-        type: Number,
-    },
-    password:{
-        type: String,
-        required: true,
-    },
-    email:{
-        type: String,
-        required: true,
-        unique:true
-    },
-    phone:{
-        type: Number,
-    },
-    cart:{
-        type: Array,
-        default: []
-    },
-    buyRequestToOwner:{
-        type: Array,
-        default: []
-    },
-    productHistory:{
-        type: Array,
-        default: []
-    }
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  regNo: {
+    type: Number,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  phone: {
+    type: Number,
+  },
+  cart: {
+    type: Array,
+    default: [],
+  },
+  buyRequestToOwner: {
+    type: Array,
+    default: [],
+  },
+  productHistory: {
+    type: Array,
+    default: [],
+  },
 });
 
-const UserModel=mongoose.model('User',UserSchema);
-module.exports=UserModel;
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

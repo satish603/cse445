@@ -1,37 +1,30 @@
-const mongoose=require('mongoose');
-const {Schema}=mongoose;
+const mongoose = require('mongoose');
 
-if (mongoose.models.Product) {
-    delete mongoose.models.Product;
-  }
-  
-
-const ProductSchema= new Schema({
-    ownerId:{
-        type: String,
-    },
-    name:{
-        type: String,
-        required: true,
-    },
-    description:{
-        type: String,
-        required: true,
-    },
-    imageUrl:{
-        type: String,
-
-    },
-    category:{
-        type: String,
-        required: true,
-    },
-    stock:{
-        type:Number,
-        required:true,
-    }
+const productSchema = new mongoose.Schema({
+  ownerId: {
+    type: String,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  stock: {
+    type: Number,
+    required: true,
+  },
 });
 
-const ProductModel=mongoose.model('Product',ProductSchema);
+const Product = mongoose.model('Product', productSchema);
 
-module.exports=ProductModel;
+module.exports = Product;

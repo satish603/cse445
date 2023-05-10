@@ -65,7 +65,7 @@ router.post('/buyall', authmiddleware, async (req, res) => {
       }
     }
 
-    // Update the buyer's buyrequest array with all purchased items and delete the cart
+    // Update the sellers' sellrequest  array with all purchased items
     for(const sellRequest of productHistory) {
       const updatedBuyer = await User.findByIdAndUpdate(
         sellRequest.buyer,
@@ -74,7 +74,8 @@ router.post('/buyall', authmiddleware, async (req, res) => {
       );
     }
 
-    // Update the sellers' sellrequest arrays with all sold items
+
+    // Update the buyer's buyrequest arrays with all sold items
     for (const buyRequest of buyRequestToOwner) {
       const updatedSeller = await User.findByIdAndUpdate(
         buyRequest.seller,
@@ -82,7 +83,9 @@ router.post('/buyall', authmiddleware, async (req, res) => {
         { new: true }
       );
     }
-
+    // Delete the cart
+    buyer.cart = [];
+    await buyer.save();
     res.json({ message: 'All products purchased successfully' });
 
   } catch (error) {

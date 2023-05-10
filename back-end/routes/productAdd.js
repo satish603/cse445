@@ -29,7 +29,7 @@ router.post(
           description,
           stock,
           category,
-          user: req.user.id,
+          ownerId: req.user.id,
           imageUrl: image,
         });
         const saveProduct = await product.save();

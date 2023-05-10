@@ -29,11 +29,11 @@ const UserSchema= new Schema({
         type: Array,
         default: []
     },
-    buyrequest:{
+    buyRequestToOwner:{
         type: Array,
         default: []
     },
-    sellrequest:{
+    productHistory:{
         type: Array,
         default: []
     }

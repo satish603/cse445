@@ -7,7 +7,7 @@ if (mongoose.models.Product) {
   
 
 const ProductSchema= new Schema({
-    user:{
+    ownerId:{
         type: String,
     },
     name:{
